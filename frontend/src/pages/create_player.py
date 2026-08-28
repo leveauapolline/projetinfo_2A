@@ -6,6 +6,7 @@ Allows users to create a new player profile with username, password, Elo, email,
 Endpoint used:
     POST /player
 """
+import os
 
 import streamlit as st
 
@@ -18,8 +19,9 @@ logger = get_page_logger("create_player")
 username = st.text_input("Username", max_chars=30)
 password = st.text_input("Password", type="password")
 
-is_pwd_long_enough = len(password) >= 35
-st.write("✅" if is_pwd_long_enough else "❌", "At least 35 characters")
+pwd_min_length = int(os.environ["PASSWORD_MIN_LENGTH"])
+is_pwd_long_enough = len(password) >= pwd_min_length
+st.write("✅" if is_pwd_long_enough else "❌", f"At least {pwd_min_length} characters")
 
 elo = st.number_input("Elo", min_value=1000, max_value=3000)
 email = st.text_input("Email")
