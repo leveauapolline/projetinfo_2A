@@ -22,8 +22,13 @@ st.write("Available actions:")
 
 if st.button("List all players"):
     st.switch_page("pages/list_players.py")
-if st.button(label="Play"):
-    st.switch_page("pages/play_game.py")
+if st.button(label="Play a Coinflip"):
+    st.switch_page("pages/play_coinflip.py")
+if st.button(label="Play Dice"):
+    st.switch_page("pages/play_dice.py")
+if st.button(label="Games history"):
+    st.switch_page("pages/game_history.py")
+
 if st.button(label="Log out", type="primary"):
     logger.info("Log out")
     del st.session_state["player"]

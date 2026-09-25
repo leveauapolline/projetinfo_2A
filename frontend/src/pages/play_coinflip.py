@@ -17,7 +17,7 @@ from utils.auth_guard import check_authentification
 from utils.log_init import get_page_logger
 
 st.title("Play a Coin flip")
-logger = get_page_logger("play_game")
+logger = get_page_logger("play_coinflip")
 
 check_authentification()
 
